@@ -3,16 +3,19 @@ using System;
 using Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
 
-namespace Infrastructure.Data.Migrations
+namespace Infrastructure.Data.Migra
 {
     [DbContext(typeof(CitasContext))]
-    partial class CitasContextModelSnapshot : ModelSnapshot
+    [Migration("20230713120521_InitialCreateV50")]
+    partial class InitialCreateV50
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -22,27 +25,31 @@ namespace Infrastructure.Data.Migrations
             modelBuilder.Entity("Core.Entities.Acudiente", b =>
                 {
                     b.Property<int>("AcuCodigo")
-                        .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
                     b.Property<string>("AcuDireccion")
-                        .HasColumnType("longtext");
+                        .IsRequired()
+                        .HasMaxLength(200)
+                        .HasColumnType("varchar(200)");
 
                     b.Property<string>("AcuNombre")
-                        .HasColumnType("longtext");
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("varchar(100)");
 
                     b.Property<string>("AcuTelefono")
-                        .HasColumnType("longtext");
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("varchar(100)");
 
                     b.HasKey("AcuCodigo");
 
-                    b.ToTable("Acudientes");
+                    b.ToTable("Acudiente", (string)null);
                 });
 
             modelBuilder.Entity("Core.Entities.Cita", b =>
                 {
                     b.Property<int>("CitCodigo")
-                        .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
                     b.Property<int>("CitDatosUsuario")
@@ -52,100 +59,90 @@ namespace Infrastructure.Data.Migrations
                         .HasColumnType("int");
 
                     b.Property<DateTime>("CitFecha")
-                        .HasColumnType("datetime(6)");
+                        .HasColumnType("date");
 
                     b.Property<int>("CitMedico")
                         .HasColumnType("int");
 
-                    b.Property<int?>("EstadoCitaEstCitaId")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("MedicoMedNroMatriculaProfesional")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("UsuarioUsuId")
-                        .HasColumnType("int");
-
                     b.HasKey("CitCodigo");
 
-                    b.HasIndex("EstadoCitaEstCitaId");
+                    b.HasIndex("CitDatosUsuario");
 
-                    b.HasIndex("MedicoMedNroMatriculaProfesional");
+                    b.HasIndex("CitEstado");
 
-                    b.HasIndex("UsuarioUsuId");
+                    b.HasIndex("CitMedico");
 
-                    b.ToTable("Citas");
+                    b.ToTable("Cita", (string)null);
                 });
 
             modelBuilder.Entity("Core.Entities.Consultorio", b =>
                 {
                     b.Property<int>("ConsCodigo")
-                        .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
                     b.Property<string>("ConsNombre")
-                        .HasColumnType("longtext");
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("varchar(50)");
 
                     b.HasKey("ConsCodigo");
 
-                    b.ToTable("Consultorios");
+                    b.ToTable("Consultorios", (string)null);
                 });
 
             modelBuilder.Entity("Core.Entities.Especialidad", b =>
                 {
                     b.Property<int>("EspId")
-                        .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
                     b.Property<string>("EspNombre")
-                        .HasColumnType("longtext");
+                        .IsRequired()
+                        .HasMaxLength(20)
+                        .HasColumnType("varchar(20)");
 
                     b.HasKey("EspId");
 
-                    b.ToTable("Especialidades");
+                    b.ToTable("Especialidad", (string)null);
                 });
 
             modelBuilder.Entity("Core.Entities.EstadoCita", b =>
                 {
                     b.Property<int>("EstCitaId")
-                        .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
                     b.Property<string>("EstCitaNombre")
-                        .HasColumnType("longtext");
+                        .IsRequired()
+                        .HasMaxLength(20)
+                        .HasColumnType("varchar(20)");
 
                     b.HasKey("EstCitaId");
 
-                    b.ToTable("EstadoCitas");
+                    b.ToTable("EstadoCita", (string)null);
                 });
 
             modelBuilder.Entity("Core.Entities.Genero", b =>
                 {
                     b.Property<int>("GenId")
-                        .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
                     b.Property<string>("GenAbreviatura")
-                        .HasColumnType("longtext");
+                        .IsRequired()
+                        .HasMaxLength(20)
+                        .HasColumnType("varchar(20)");
 
                     b.Property<string>("GenNombre")
-                        .HasColumnType("longtext");
+                        .IsRequired()
+                        .HasMaxLength(20)
+                        .HasColumnType("varchar(20)");
 
                     b.HasKey("GenId");
 
-                    b.ToTable("Generos");
+                    b.ToTable("Genero", (string)null);
                 });
 
             modelBuilder.Entity("Core.Entities.Medico", b =>
                 {
                     b.Property<int>("MedNroMatriculaProfesional")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    b.Property<int?>("ConsultorioConsCodigo")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("EspecialidadEspId")
                         .HasColumnType("int");
 
                     b.Property<int>("MedConsultorio")
@@ -155,103 +152,118 @@ namespace Infrastructure.Data.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("MedNombreCompleto")
-                        .HasColumnType("longtext");
+                        .IsRequired()
+                        .HasMaxLength(120)
+                        .HasColumnType("varchar(120)");
 
                     b.HasKey("MedNroMatriculaProfesional");
 
-                    b.HasIndex("ConsultorioConsCodigo");
+                    b.HasIndex("MedConsultorio");
 
-                    b.HasIndex("EspecialidadEspId");
+                    b.HasIndex("MedEspecialidad");
 
-                    b.ToTable("Medicos");
+                    b.ToTable("Medico", (string)null);
                 });
 
             modelBuilder.Entity("Core.Entities.TipoDocumento", b =>
                 {
                     b.Property<int>("TipDocId")
-                        .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
                     b.Property<string>("TipDocAbreviatura")
-                        .HasColumnType("longtext");
+                        .IsRequired()
+                        .HasMaxLength(20)
+                        .HasColumnType("varchar(20)");
 
                     b.Property<string>("TipDocNombre")
-                        .HasColumnType("longtext");
+                        .IsRequired()
+                        .HasMaxLength(20)
+                        .HasColumnType("varchar(20)");
 
                     b.HasKey("TipDocId");
 
-                    b.ToTable("TipoDocumentos");
+                    b.ToTable("TipoDocumento", (string)null);
                 });
 
             modelBuilder.Entity("Core.Entities.Usuario", b =>
                 {
                     b.Property<int>("UsuId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    b.Property<int?>("AcudienteAcuCodigo")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("GeneroGenId")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("TipoDocumentoTipDocId")
                         .HasColumnType("int");
 
                     b.Property<int>("UsuAcudiente")
                         .HasColumnType("int");
 
                     b.Property<string>("UsuDireccion")
-                        .HasColumnType("longtext");
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("varchar(100)");
 
                     b.Property<string>("UsuEmail")
-                        .HasColumnType("longtext");
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("varchar(100)");
 
                     b.Property<int>("UsuGenero")
                         .HasColumnType("int");
 
                     b.Property<string>("UsuNombre")
-                        .HasColumnType("longtext");
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("varchar(50)");
 
                     b.Property<string>("UsuPrimerApellidoUsuar")
-                        .HasColumnType("longtext");
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("varchar(50)");
 
                     b.Property<string>("UsuSegdoApellidoUsuar")
-                        .HasColumnType("longtext");
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("varchar(50)");
 
                     b.Property<string>("UsuSegdoNombre")
-                        .HasColumnType("longtext");
+                        .IsRequired()
+                        .HasMaxLength(45)
+                        .HasColumnType("varchar(45)");
 
                     b.Property<string>("UsuTelefono")
-                        .HasColumnType("longtext");
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("varchar(50)");
 
                     b.Property<int>("UsuTipoDoc")
                         .HasColumnType("int");
 
                     b.HasKey("UsuId");
 
-                    b.HasIndex("AcudienteAcuCodigo");
+                    b.HasIndex("UsuAcudiente");
 
-                    b.HasIndex("GeneroGenId");
+                    b.HasIndex("UsuGenero");
 
-                    b.HasIndex("TipoDocumentoTipDocId");
+                    b.HasIndex("UsuTipoDoc");
 
-                    b.ToTable("Usuarios");
+                    b.ToTable("Usuario", (string)null);
                 });
 
             modelBuilder.Entity("Core.Entities.Cita", b =>
                 {
+                    b.HasOne("Core.Entities.Usuario", "Usuario")
+                        .WithMany("Citas")
+                        .HasForeignKey("CitDatosUsuario")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.HasOne("Core.Entities.EstadoCita", "EstadoCita")
                         .WithMany("Citas")
-                        .HasForeignKey("EstadoCitaEstCitaId");
+                        .HasForeignKey("CitEstado")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("Core.Entities.Medico", "Medico")
                         .WithMany("Citas")
-                        .HasForeignKey("MedicoMedNroMatriculaProfesional");
-
-                    b.HasOne("Core.Entities.Usuario", "Usuario")
-                        .WithMany("Citas")
-                        .HasForeignKey("UsuarioUsuId");
+                        .HasForeignKey("CitMedico")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("EstadoCita");
 
@@ -264,11 +276,15 @@ namespace Infrastructure.Data.Migrations
                 {
                     b.HasOne("Core.Entities.Consultorio", "Consultorio")
                         .WithMany("Medicos")
-                        .HasForeignKey("ConsultorioConsCodigo");
+                        .HasForeignKey("MedConsultorio")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("Core.Entities.Especialidad", "Especialidad")
                         .WithMany("Medicos")
-                        .HasForeignKey("EspecialidadEspId");
+                        .HasForeignKey("MedEspecialidad")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Consultorio");
 
@@ -279,15 +295,21 @@ namespace Infrastructure.Data.Migrations
                 {
                     b.HasOne("Core.Entities.Acudiente", "Acudiente")
                         .WithMany("Usuarios")
-                        .HasForeignKey("AcudienteAcuCodigo");
+                        .HasForeignKey("UsuAcudiente")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("Core.Entities.Genero", "Genero")
                         .WithMany("Usuarios")
-                        .HasForeignKey("GeneroGenId");
+                        .HasForeignKey("UsuGenero")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("Core.Entities.TipoDocumento", "TipoDocumento")
                         .WithMany("Usuarios")
-                        .HasForeignKey("TipoDocumentoTipDocId");
+                        .HasForeignKey("UsuTipoDoc")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Acudiente");
 

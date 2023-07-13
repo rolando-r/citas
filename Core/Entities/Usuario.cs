@@ -3,7 +3,6 @@ using System.ComponentModel.DataAnnotations;
 namespace Core.Entities;
 public class Usuario
 {
-    [Key]
     // Entidad Hija_padre
     // Realizamos la referencia de la entidad de Usuarios
     // Definicion de los atributos de la entidad de Usuarios

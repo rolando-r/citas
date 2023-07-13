@@ -3,7 +3,6 @@ using System.ComponentModel.DataAnnotations;
 namespace Core.Entities;
 public class Consultorio
 {
-    [Key]
     // Entidad Hija_padre
     // Realizamos la referencia de la entidad de Consultorios
     // Definicion de los atributos de la entidad de Consultorios

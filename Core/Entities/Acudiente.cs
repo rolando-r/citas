@@ -3,7 +3,6 @@ using System.ComponentModel.DataAnnotations;
 namespace Core.Entities;
 public class Acudiente
 {
-    [Key]
     // Entidad Hija_padre
     //realizamos las referencias de la entidad de Acudiente
     //definicion de los atributos de la entidad Acudiente

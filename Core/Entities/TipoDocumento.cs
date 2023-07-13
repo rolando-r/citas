@@ -3,7 +3,6 @@ using System.ComponentModel.DataAnnotations;
 namespace Core.Entities;
 public class TipoDocumento
 {
-    [Key]
     // Entidad Hija_padre
     // Realizamos la referencia de la entidad de TipoDocumentos
     // Definicion de los atributos de la entidad de TipoDocumentos
