@@ -10,3 +10,15 @@
 /home/apolm01-021/Desktop/citas/Core/obj/Debug/net7.0/refint/Core.dll
 /home/apolm01-021/Desktop/citas/Core/obj/Debug/net7.0/Core.pdb
 /home/apolm01-021/Desktop/citas/Core/obj/Debug/net7.0/ref/Core.dll
+C:\Users\roola\OneDrive\Escritorio\Programación\Pruebas Campus\citas\Core\bin\Debug\net7.0\Core.deps.json
+C:\Users\roola\OneDrive\Escritorio\Programación\Pruebas Campus\citas\Core\bin\Debug\net7.0\Core.dll
+C:\Users\roola\OneDrive\Escritorio\Programación\Pruebas Campus\citas\Core\bin\Debug\net7.0\Core.pdb
+C:\Users\roola\OneDrive\Escritorio\Programación\Pruebas Campus\citas\Core\obj\Debug\net7.0\Core.csproj.AssemblyReference.cache
+C:\Users\roola\OneDrive\Escritorio\Programación\Pruebas Campus\citas\Core\obj\Debug\net7.0\Core.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\roola\OneDrive\Escritorio\Programación\Pruebas Campus\citas\Core\obj\Debug\net7.0\Core.AssemblyInfoInputs.cache
+C:\Users\roola\OneDrive\Escritorio\Programación\Pruebas Campus\citas\Core\obj\Debug\net7.0\Core.AssemblyInfo.cs
+C:\Users\roola\OneDrive\Escritorio\Programación\Pruebas Campus\citas\Core\obj\Debug\net7.0\Core.csproj.CoreCompileInputs.cache
+C:\Users\roola\OneDrive\Escritorio\Programación\Pruebas Campus\citas\Core\obj\Debug\net7.0\Core.dll
+C:\Users\roola\OneDrive\Escritorio\Programación\Pruebas Campus\citas\Core\obj\Debug\net7.0\refint\Core.dll
+C:\Users\roola\OneDrive\Escritorio\Programación\Pruebas Campus\citas\Core\obj\Debug\net7.0\Core.pdb
+C:\Users\roola\OneDrive\Escritorio\Programación\Pruebas Campus\citas\Core\obj\Debug\net7.0\ref\Core.dll

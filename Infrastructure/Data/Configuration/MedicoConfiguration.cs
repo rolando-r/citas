@@ -9,8 +9,9 @@ public class MedicoConfiguration : IEntityTypeConfiguration<Medico>
     {
         builder.ToTable("Medico");
 
+        builder.HasKey(p => p.MedNroMatriculaProfesional);
         builder.Property(p => p.MedNroMatriculaProfesional)
-        .IsRequired();
+        .ValueGeneratedNever();
 
         builder.Property(p => p.MedNombreCompleto)
         .IsRequired()

@@ -9,8 +9,9 @@ public class ConsultorioConfiguration : IEntityTypeConfiguration<Consultorio>
     {
         builder.ToTable("Consultorios");
 
+        builder.HasKey(p => p.ConsCodigo);
         builder.Property(p => p.ConsCodigo)
-        .IsRequired();
+        .ValueGeneratedNever();
 
         builder.Property(p => p.ConsNombre)
         .IsRequired()

@@ -9,8 +9,9 @@ public class TipoDocumentoConfiguration : IEntityTypeConfiguration<TipoDocumento
     {
         builder.ToTable("TipoDocumento");
 
+        builder.HasKey(p => p.TipDocId);
         builder.Property(p => p.TipDocId)
-        .IsRequired();
+        .ValueGeneratedNever();
 
         builder.Property(p => p.TipDocNombre)
         .IsRequired()

@@ -9,8 +9,9 @@ public class CitaConfiguration : IEntityTypeConfiguration<Cita>
     {
         builder.ToTable("Cita");
 
+        builder.HasKey(p => p.CitCodigo);
         builder.Property(p => p.CitCodigo)
-        .IsRequired();
+        .ValueGeneratedNever();
 
         builder.Property(p => p.CitFecha)
         .IsRequired()

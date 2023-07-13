@@ -9,8 +9,9 @@ public class EspecialidadConfiguration : IEntityTypeConfiguration<Especialidad>
     {
         builder.ToTable("Especialidad");
 
+        builder.HasKey(p => p.EspId);
         builder.Property(p => p.EspId)
-        .IsRequired();
+        .ValueGeneratedNever();
 
         builder.Property(p => p.EspNombre)
         .IsRequired()

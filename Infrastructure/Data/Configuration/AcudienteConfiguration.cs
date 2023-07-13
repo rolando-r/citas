@@ -10,8 +10,9 @@ public class AcudienteConfiguration : IEntityTypeConfiguration<Acudiente>
     {
         builder.ToTable("Acudiente");
 
+        builder.HasKey(p => p.AcuCodigo);
         builder.Property(p => p.AcuCodigo)
-        .IsRequired();
+        .ValueGeneratedNever();
 
         builder.Property(p => p.AcuNombre)
         .IsRequired()

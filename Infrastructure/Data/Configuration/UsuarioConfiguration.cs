@@ -9,8 +9,9 @@ public class UsuarioConfiguration : IEntityTypeConfiguration<Usuario>
     {
         builder.ToTable("Usuario");
 
+        builder.HasKey(p => p.UsuId);
         builder.Property(p => p.UsuId)
-        .IsRequired();
+        .ValueGeneratedNever();
 
         builder.Property(p => p.UsuNombre)
         .IsRequired()

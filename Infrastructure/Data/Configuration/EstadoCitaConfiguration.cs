@@ -9,8 +9,9 @@ public class EstadoCitaConfiguration : IEntityTypeConfiguration<EstadoCita>
     {
         builder.ToTable("EstadoCita");
 
+        builder.HasKey(p => p.EstCitaId);
         builder.Property(p => p.EstCitaId)
-        .IsRequired();
+        .ValueGeneratedNever();
 
         builder.Property(p => p.EstCitaNombre)
         .IsRequired()

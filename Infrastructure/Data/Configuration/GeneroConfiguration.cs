@@ -9,8 +9,9 @@ public class GeneroConfiguration : IEntityTypeConfiguration<Genero>
     {
         builder.ToTable("Genero");
 
+        builder.HasKey(p => p.GenId);
         builder.Property(p => p.GenId)
-        .IsRequired();
+        .ValueGeneratedNever();
 
         builder.Property(p=> p.GenNombre)
         .IsRequired()
