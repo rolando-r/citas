@@ -5,10 +5,8 @@ using Microsoft.EntityFrameworkCore;
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.ConfigureCors();
 builder.Services.AddControllers();
+builder.Services.AddAplicacionServices();
 
-// Add services to the container.
-
-builder.Services.AddControllers();
 builder.Services.AddDbContext<CitasContext>(optionsBuilder =>
 {
 string ? connectionString = builder.Configuration.GetConnectionString("DefaultConnection");

@@ -1,3 +1,6 @@
+using Core.Interfaces;
+using Infrastructure.Repository;
+
 namespace API.Extensions;
 public static class ApplicationServiceExtension
 {
@@ -9,4 +12,8 @@ public static class ApplicationServiceExtension
             .AllowAnyMethod()
             .AllowAnyHeader());
         });
+        public static void AddAplicacionServices(this IServiceCollection services){
+            services.AddScoped<IAcudiente,AcudienteRepository>();
+            services.AddScoped<IConsultorio,ConsultorioRepository>();
+        }
 }
