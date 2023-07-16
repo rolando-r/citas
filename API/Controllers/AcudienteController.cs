@@ -1,4 +1,5 @@
 using Core.Entities;
+using Core.Interfaces;
 using Infrastructure.Data;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -7,26 +8,28 @@ namespace API.Controllers;
 
 public class AcudienteController : BaseApiController
 {
-    private readonly CitasContext _context;
+    public readonly IAcudiente _acudienteRepository;
     
-    public AcudienteController(CitasContext context)
+    public AcudienteController(IAcudiente acudienteRepository)
     {
-      _context = context;
+      _acudienteRepository = acudienteRepository;
     }
+
+
     [HttpGet]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     public async Task<ActionResult<IEnumerable<Acudiente>>> Get()
     {
-        var nameVar = await _context.Acudientes.ToListAsync();
-        return Ok(nameVar);
+        var acudientes = await _acudienteRepository.GetAllAsync();
+        return Ok(acudientes);
     }
     [HttpGet("{id}")]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
-    public async Task<IActionResult> Get(int id)
+    public async Task<IActionResult> Get(string id)
     {
-        var acudiente = await _context.Acudientes.FindAsync(id);
+        var acudiente = await _acudienteRepository.GetByIdAsync(id);
         return Ok(acudiente);
     }
 }
