@@ -7,11 +7,11 @@ namespace API.Controllers;
 
 public class ConsultorioController : BaseApiController
 {
-    private readonly IUnitOfWork unitOfWork;
+    private readonly IUnitOfWork unitofwork;
 
-    public ConsultorioController(IUnitOfWork _unitOfWork)
+    public ConsultorioController(IUnitOfWork _unitofwork)
     {
-        unitOfWork = _unitOfWork;
+        unitofwork = _unitofwork;
     }
 
     [HttpGet]
@@ -19,7 +19,7 @@ public class ConsultorioController : BaseApiController
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     public async Task<ActionResult<IEnumerable<Consultorio>>> Get()
     {
-        var consultorio = await unitOfWork.Consultorios.GetAllAsync();
+        var consultorio = await unitofwork.Consultorios.GetAllAsync();
         return Ok(consultorio);
     }
     [HttpGet("{id}")]
@@ -27,7 +27,19 @@ public class ConsultorioController : BaseApiController
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     public async Task<IActionResult> Get(string id)
     {
-        var consultorio = await unitOfWork.Consultorios.GetByIdAsync(id);
+        var consultorio = await unitofwork.Consultorios.GetByIdAsync(id);
         return Ok(consultorio);
+    }
+    [HttpPost]
+    [ProducesResponseType(StatusCodes.Status201Created)]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    public async Task<ActionResult<Consultorio>> Post(Consultorio consultorio){
+        this.unitofwork.Consultorios.Add(consultorio);
+        await unitofwork.SaveAsync();
+        if(consultorio == null)
+        {
+            return BadRequest();
+        }
+        return CreatedAtAction(nameof(Post),new {id= consultorio.ConsCodigo}, consultorio);
     }
 }

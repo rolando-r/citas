@@ -8,11 +8,11 @@ namespace API.Controllers;
 
 public class AcudienteController : BaseApiController
 {
-    public readonly IAcudiente _acudienteRepository;
+    public readonly IUnitOfWork unitofwork;
     
-    public AcudienteController(IAcudiente acudienteRepository)
+    public AcudienteController(IUnitOfWork _unitofwork)
     {
-      _acudienteRepository = acudienteRepository;
+      unitofwork = _unitofwork;
     }
 
 
@@ -21,15 +21,27 @@ public class AcudienteController : BaseApiController
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     public async Task<ActionResult<IEnumerable<Acudiente>>> Get()
     {
-        var acudientes = await _acudienteRepository.GetAllAsync();
-        return Ok(acudientes);
+        var acudiente = await unitofwork.Acudientes.GetAllAsync();
+        return Ok(acudiente);
     }
     [HttpGet("{id}")]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     public async Task<IActionResult> Get(string id)
     {
-        var acudiente = await _acudienteRepository.GetByIdAsync(id);
+        var acudiente = await unitofwork.Acudientes.GetByIdAsync(id);
         return Ok(acudiente);
+    }
+    [HttpPost]
+    [ProducesResponseType(StatusCodes.Status201Created)]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    public async Task<ActionResult<Acudiente>> Post(Acudiente acudiente){
+        this.unitofwork.Acudientes.Add(acudiente);
+        await unitofwork.SaveAsync();
+        if(acudiente == null)
+        {
+            return BadRequest();
+        }
+        return CreatedAtAction(nameof(Post),new {id= acudiente.AcuCodigo}, acudiente);
     }
 }
