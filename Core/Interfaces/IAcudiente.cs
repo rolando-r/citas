@@ -12,9 +12,4 @@ public interface IAcudiente
     void Remove(Acudiente entity);
     void RemoveRange(IEnumerable<Acudiente> entities);
     void Update(Acudiente entity);
-
-    public Task GetByIdAsync(int id)
-    {
-        throw new NotImplementedException();
-    }
 }

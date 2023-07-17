@@ -9,9 +9,9 @@ public class ConsultorioController : BaseApiController
 {
     private readonly IUnitOfWork unitofwork;
 
-    public ConsultorioController(IUnitOfWork _unitofwork)
+    public ConsultorioController(IUnitOfWork unitofwork)
     {
-        unitofwork = _unitofwork;
+        this.unitofwork = unitofwork;
     }
 
     [HttpGet]
@@ -41,5 +41,28 @@ public class ConsultorioController : BaseApiController
             return BadRequest();
         }
         return CreatedAtAction(nameof(Post),new {id= consultorio.ConsCodigo}, consultorio);
+    }
+    [HttpPut("{id}")]
+    [ProducesResponseType(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    public async Task<ActionResult<Consultorio>> Put(string id, [FromBody]Consultorio consultorio){
+        if(consultorio == null)
+            return NotFound();
+        unitofwork.Consultorios.Update(consultorio);
+        await unitofwork.SaveAsync();
+        return consultorio;
+    }
+    [HttpDelete("{id}")]
+    [ProducesResponseType(StatusCodes.Status204NoContent)]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
+    public async Task<IActionResult> Delete(string id){
+        var consultorio = await unitofwork.Consultorios.GetByIdAsync(id);
+        if(consultorio == null){
+            return NotFound();
+        }
+        unitofwork.Consultorios.Remove(consultorio);
+        await unitofwork.SaveAsync();
+        return NoContent();
     }
 }
