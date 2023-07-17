@@ -7,11 +7,11 @@ namespace API.Controllers;
 
 public class ConsultorioController : BaseApiController
 {
-    public readonly IConsultorio _consultorioRepository;
+    private readonly IUnitOfWork unitOfWork;
 
-    public ConsultorioController(IConsultorio _consultorio)
+    public ConsultorioController(IUnitOfWork _unitOfWork)
     {
-        _consultorioRepository = _consultorio;
+        unitOfWork = _unitOfWork;
     }
 
     [HttpGet]
@@ -19,15 +19,15 @@ public class ConsultorioController : BaseApiController
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     public async Task<ActionResult<IEnumerable<Consultorio>>> Get()
     {
-        var consultorios = await _consultorioRepository.GetAllAsync();
-        return Ok(consultorios);
+        var consultorio = await unitOfWork.Consultorios.GetAllAsync();
+        return Ok(consultorio);
     }
     [HttpGet("{id}")]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     public async Task<IActionResult> Get(string id)
     {
-        var consultorio = await _consultorioRepository.GetByIdAsync(id);
+        var consultorio = await unitOfWork.Consultorios.GetByIdAsync(id);
         return Ok(consultorio);
     }
 }
