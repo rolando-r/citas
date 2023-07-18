@@ -1,34 +1,33 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\roola\\OneDrive\\Escritorio\\Programación\\Proyectos Campus\\CSharp\\citas\\API\\API.csproj": {}
+    "/home/apolm01-021/Desktop/citas/API/API.csproj": {}
   },
   "projects": {
-    "C:\\Users\\roola\\OneDrive\\Escritorio\\Programación\\Proyectos Campus\\CSharp\\citas\\API\\API.csproj": {
+    "/home/apolm01-021/Desktop/citas/API/API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\roola\\OneDrive\\Escritorio\\Programación\\Proyectos Campus\\CSharp\\citas\\API\\API.csproj",
+        "projectUniqueName": "/home/apolm01-021/Desktop/citas/API/API.csproj",
         "projectName": "API",
-        "projectPath": "C:\\Users\\roola\\OneDrive\\Escritorio\\Programación\\Proyectos Campus\\CSharp\\citas\\API\\API.csproj",
-        "packagesPath": "C:\\Users\\roola\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\roola\\OneDrive\\Escritorio\\Programación\\Proyectos Campus\\CSharp\\citas\\API\\obj\\",
+        "projectPath": "/home/apolm01-021/Desktop/citas/API/API.csproj",
+        "packagesPath": "/home/apolm01-021/.nuget/packages/",
+        "outputPath": "/home/apolm01-021/Desktop/citas/API/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\roola\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "/home/apolm01-021/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net7.0"
         ],
         "sources": {
-          "C:\\Program Files\\dotnet\\sdk\\7.0.304\\Sdks\\Microsoft.NET.Sdk.Web\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
-              "C:\\Users\\roola\\OneDrive\\Escritorio\\Programación\\Proyectos Campus\\CSharp\\citas\\Infrastructure\\Infrastructure.csproj": {
-                "projectPath": "C:\\Users\\roola\\OneDrive\\Escritorio\\Programación\\Proyectos Campus\\CSharp\\citas\\Infrastructure\\Infrastructure.csproj"
+              "/home/apolm01-021/Desktop/citas/Infrastructure/Infrastructure.csproj": {
+                "projectPath": "/home/apolm01-021/Desktop/citas/Infrastructure/Infrastructure.csproj"
               }
             }
           }
@@ -52,8 +51,6 @@
               "version": "[7.0.9, )"
             },
             "Microsoft.EntityFrameworkCore.Design": {
-              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
-              "suppressParent": "All",
               "target": "Package",
               "version": "[7.0.9, )"
             },
@@ -81,21 +78,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.304\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/lib/dotnet/sdk/7.0.109/RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\roola\\OneDrive\\Escritorio\\Programación\\Proyectos Campus\\CSharp\\citas\\Core\\Core.csproj": {
+    "/home/apolm01-021/Desktop/citas/Core/Core.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\roola\\OneDrive\\Escritorio\\Programación\\Proyectos Campus\\CSharp\\citas\\Core\\Core.csproj",
+        "projectUniqueName": "/home/apolm01-021/Desktop/citas/Core/Core.csproj",
         "projectName": "Core",
-        "projectPath": "C:\\Users\\roola\\OneDrive\\Escritorio\\Programación\\Proyectos Campus\\CSharp\\citas\\Core\\Core.csproj",
-        "packagesPath": "C:\\Users\\roola\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\roola\\OneDrive\\Escritorio\\Programación\\Proyectos Campus\\CSharp\\citas\\Core\\obj\\",
+        "projectPath": "/home/apolm01-021/Desktop/citas/Core/Core.csproj",
+        "packagesPath": "/home/apolm01-021/.nuget/packages/",
+        "outputPath": "/home/apolm01-021/Desktop/citas/Core/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\roola\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "/home/apolm01-021/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net7.0"
@@ -134,21 +131,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.304\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/lib/dotnet/sdk/7.0.109/RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\roola\\OneDrive\\Escritorio\\Programación\\Proyectos Campus\\CSharp\\citas\\Infrastructure\\Infrastructure.csproj": {
+    "/home/apolm01-021/Desktop/citas/Infrastructure/Infrastructure.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\roola\\OneDrive\\Escritorio\\Programación\\Proyectos Campus\\CSharp\\citas\\Infrastructure\\Infrastructure.csproj",
+        "projectUniqueName": "/home/apolm01-021/Desktop/citas/Infrastructure/Infrastructure.csproj",
         "projectName": "Infrastructure",
-        "projectPath": "C:\\Users\\roola\\OneDrive\\Escritorio\\Programación\\Proyectos Campus\\CSharp\\citas\\Infrastructure\\Infrastructure.csproj",
-        "packagesPath": "C:\\Users\\roola\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\roola\\OneDrive\\Escritorio\\Programación\\Proyectos Campus\\CSharp\\citas\\Infrastructure\\obj\\",
+        "projectPath": "/home/apolm01-021/Desktop/citas/Infrastructure/Infrastructure.csproj",
+        "packagesPath": "/home/apolm01-021/.nuget/packages/",
+        "outputPath": "/home/apolm01-021/Desktop/citas/Infrastructure/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\roola\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "/home/apolm01-021/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net7.0"
@@ -160,8 +157,8 @@
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
-              "C:\\Users\\roola\\OneDrive\\Escritorio\\Programación\\Proyectos Campus\\CSharp\\citas\\Core\\Core.csproj": {
-                "projectPath": "C:\\Users\\roola\\OneDrive\\Escritorio\\Programación\\Proyectos Campus\\CSharp\\citas\\Core\\Core.csproj"
+              "/home/apolm01-021/Desktop/citas/Core/Core.csproj": {
+                "projectPath": "/home/apolm01-021/Desktop/citas/Core/Core.csproj"
               }
             }
           }
@@ -201,7 +198,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.304\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/lib/dotnet/sdk/7.0.109/RuntimeIdentifierGraph.json"
         }
       }
     }

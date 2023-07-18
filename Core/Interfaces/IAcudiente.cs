@@ -6,7 +6,7 @@ public interface IAcudiente
 {
     Task<Acudiente> GetByIdAsync(string id);
     Task<IEnumerable<Acudiente>> GetAllAsync();
-    IEnumerable<Acudiente> Find(Expression<Func<ParameterizedThreadStart,bool>> expression);
+    IEnumerable<Acudiente> Find(Expression<Func<Acudiente,bool>> expression);
     void Add(Acudiente entity);
     void AddRange(IEnumerable<Acudiente> entities);
     void Remove(Acudiente entity);

@@ -30,11 +30,6 @@ public class ConsultorioRepository : IConsultorio
         return _context.Set<Consultorio>().Where(expression);
     }
 
-    public IEnumerable<Consultorio> Find(Expression<Func<ParameterizedThreadStart, bool>> expression)
-    {
-        throw new NotImplementedException();
-    }
-
     public async Task<IEnumerable<Consultorio>> GetAllAsync()
     {
         return await _context.Set<Consultorio>().ToListAsync();

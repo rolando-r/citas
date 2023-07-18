@@ -54,9 +54,4 @@ public class AcudienteRepository : IAcudiente
     {
         _context.Set<Acudiente>().Update(entity);
     }
-
-    IEnumerable<Acudiente> IAcudiente.Find(Expression<Func<ParameterizedThreadStart, bool>> expression)
-    {
-        throw new NotImplementedException();
-    }
 }
