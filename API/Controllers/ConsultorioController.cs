@@ -1,3 +1,4 @@
+using AutoMapper;
 using Core.Entities;
 using Core.Interfaces;
 using Microsoft.AspNetCore.Mvc;
@@ -8,10 +9,12 @@ namespace API.Controllers;
 public class ConsultorioController : BaseApiController
 {
     private readonly IUnitOfWork unitofwork;
+    private readonly IMapper mapper;
 
-    public ConsultorioController(IUnitOfWork unitofwork)
+    public ConsultorioController(IUnitOfWork unitofwork, IMapper mapper)
     {
         this.unitofwork = unitofwork;
+        this.mapper = mapper;
     }
 
     [HttpGet]

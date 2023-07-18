@@ -1,3 +1,5 @@
+using API.Dtos;
+using AutoMapper;
 using Core.Entities;
 using Core.Interfaces;
 using Microsoft.AspNetCore.Mvc;
@@ -8,19 +10,29 @@ namespace API.Controllers;
 public class AcudienteController : BaseApiController
 {
     private readonly IUnitOfWork unitofwork;
+    private readonly IMapper mapper;
 
-    public AcudienteController(IUnitOfWork unitofwork)
+    public AcudienteController(IUnitOfWork unitofwork, IMapper mapper)
     {
         this.unitofwork = unitofwork;
+        this.mapper = mapper;
     }
-
-    [HttpGet]
+    /* [HttpGet]
     [ProducesResponseType(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     public async Task<ActionResult<IEnumerable<Acudiente>>> Get()
     {
         var acudiente = await unitofwork.Acudientes.GetAllAsync();
         return Ok(acudiente);
+    } */
+    [HttpGet]
+    [ProducesResponseType(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
+    public async Task<List<AcudienteDto>> Get()
+    {
+        var acudiente = await unitofwork.Acudientes.GetAllAsync();
+        return this.mapper.Map<List<AcudienteDto>>(acudiente);
     }
     [HttpGet("{id}")]
     [ProducesResponseType(StatusCodes.Status200OK)]
