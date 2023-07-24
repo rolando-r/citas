@@ -2,12 +2,12 @@
 
 Project created to optimize the appointment system of a hospital, using C# and NetCore
 
-## Authors
-
-- [@rolando-r](https://www.github.com/rolando-r)
-
 ## Skills 🛠
   C#, .NETCore
+
+  ## Authors
+
+- [@rolando-r](https://www.github.com/rolando-r)
 
 ## Deployment
 
